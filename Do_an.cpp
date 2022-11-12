@@ -12,8 +12,6 @@
 using namespace std;
 
 
-
-
 void TextColor(int x)
 {
      HANDLE h= GetStdHandle(STD_OUTPUT_HANDLE);
