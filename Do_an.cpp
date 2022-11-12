@@ -137,13 +137,13 @@ bandoc *bandoc::cacbandoc[100];
 void bandoc::dangki()
 {
    char ma[80];
-   cout << "Ma ban doc : ";
+   cout << "\nMa ban doc : ";
    cin.getline(ma, sizeof(ma));
    char ten[80];
-   cout << " Ten ban doc : ";
+   cout << "\nTen ban doc : ";
    cin.getline(ten, sizeof(ten));
    cacbandoc[sobandoc++] = new bandoc(ma, ten);
-   cout << " Ban doc " << ten << " da duoc dang ki \n ";
+   cout << " Ban doc " <<"' " << ten << " '" <<" da duoc dang ki \n ";
 }
 bandoc *bandoc::timbd(char *ma)
 {
@@ -204,7 +204,7 @@ void bandoc::tra(dausach *right)
 void bandoc::inds()
 {
    for (int i = 0; i < sobandoc; i++)
-      cout << cacbandoc[i]->ma << setw(5) << cacbandoc[i]->ten << setw(5) << cacbandoc[i]->somuon;
+      cout <<"\nMa ban doc: "<< cacbandoc[i]->ma << setw(5) <<"\t\tTen ban doc: " <<cacbandoc[i]->ten << setw(5) <<"\tSo muon: " <<cacbandoc[i]->somuon;
 }
 
 int sach::sosach = 0;
@@ -257,17 +257,17 @@ dausach *sach::timdausach(char *masach, int id)
 void sach::nhapsach()
 {
    char ma[80];
-   cout << "Ma sach :";
+   cout << "\nMa sach :";
    cin.getline(ma, sizeof(ma));
    char ten[80];
-   cout << "Ten sach : ";
+   cout << "\nTen sach : ";
    cin.getline(ten, sizeof(ten));
    int n;
-   cout << "So dau sach : ";
+   cout << "\nSo dau sach : ";
    cin >> n;
    cin.ignore(1);
    khosach[sosach++] = new sach(ma, ten, n);
-   cout << "Sach nay da duoc nhap vao \n";
+   cout << "\nSach nay da duoc nhap vao !!!\n";
 }
 void sach::xoadl()
 {
@@ -278,21 +278,21 @@ void sach::xoadl()
 void sach::inds()
 {
    for (int i = 0; i < sosach; i++)
-      cout << khosach[i]->ma, khosach[i]->ten, khosach[i]->sodausach;
+      cout << "\nMa sach: " << khosach[i]->ma<<"\t\tTen sach: "<< khosach[i]->ten<<"\t\tSo dau sach: "<< khosach[i]->sodausach<<"\n";
 }
 void muon()
 {
    char mabd[80];
-   cout << "Ma ban doc : ";
+   cout << "\nMa ban doc : ";
    cin.getline(mabd, sizeof(mabd));
    bandoc *bd = bandoc::timbd(mabd);
    if (bd == 0)
    {
-      cout << "Ma ban doc nay chua duoc dang ki \n ";
+      cout << "\nMa ban doc nay chua duoc dang ki \n ";
       return;
    }
    char mas[80];
-   cout << "Ma sach muon : ";
+   cout << "Ma sach muon: ";
    cin.getline(mas, sizeof(mas));
    bd->muon(mas);
 }
@@ -324,7 +324,7 @@ void tra()
 void menu()
 {
    cout << "\n\n\n===== CHUONG TRINH QUAN LY THU VIEN =====\n\n";
-   
+   cout << "\n\n Nhap lua chon cua ban: \n";
    cout << " 1. Dang ki ban doc \n";
    cout << " 2. Nhap sach \n";
    cout << " 3. Muon sach \n";
@@ -332,7 +332,7 @@ void menu()
    cout << " 5. In danh sach ban doc\n";
    cout << " 6. In danh sach sach\n";
    cout << " 7. Thoat khoi chuong trinh !!!\n";
-   cout << "\n\n Nhap lua chon cua ban: ";
+   
 }
 int main()
 {
