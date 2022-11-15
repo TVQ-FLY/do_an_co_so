@@ -1,14 +1,9 @@
 #include <iostream>
-// using std::cin;
-// using std::cout;
-// using std::endl;
 #include <cstring>
-// using std::strcpy;
-// using std::strlen;
 #include <conio.h>
 #include <iomanip>
 #include <windows.h>
-// using std::setw;
+
 using namespace std;
 
 
@@ -56,6 +51,7 @@ class bandoc
       void muon(dausach *dausach);
       static void inds();
 };
+
 class sach
 {
    friend class dausach;
@@ -78,6 +74,7 @@ class sach
       static void xoadl();
       static void inds();
 };
+
 class phieumuon
 {
    friend class bandoc;
@@ -93,6 +90,7 @@ class phieumuon
       }
       
 };
+
 class dausach
 {
    friend class phieumuon;
@@ -145,6 +143,7 @@ void bandoc::dangki()
    cacbandoc[sobandoc++] = new bandoc(ma, ten);
    cout << " Ban doc " <<"' " << ten << " '" <<" da duoc dang ki \n ";
 }
+
 bandoc *bandoc::timbd(char *ma)
 {
    for (int i = 0; i < sobandoc; i++)
@@ -152,12 +151,14 @@ bandoc *bandoc::timbd(char *ma)
          return cacbandoc[i];
    return 0;
 }
+
 void bandoc::xoadl()
 {
    for (int i = 0; i < sobandoc; i++)
       delete[] cacbandoc[i];
    sobandoc = 0;
 }
+
 phieumuon *bandoc::muon(char *masach)
 {
    if (somuon == 5)
@@ -182,10 +183,12 @@ phieumuon *bandoc::muon(char *masach)
    cout << "Ban da duoc dau sach so " << dausach->id << endl;
    return phieu;
 }
+
 void bandoc::muon(dausach *dausach)
 {
    sachmuon[somuon++] = dausach->chomuon(this);
 }
+
 void bandoc::tra(dausach *right)
 {
    for (int i = 0; i < somuon; i++)
@@ -222,6 +225,7 @@ sach::sach(char *ma_, char *ten_, int n)
    for (int i = 0; i < sodausach; i++)
       cacdausach[i] = new dausach(this, i + 1);
 }
+
 sach::~sach()
 {
    delete[] ma;
@@ -230,6 +234,7 @@ sach::~sach()
       delete cacdausach[i];
    delete[] cacdausach;
 }
+
 dausach *sach::timchuamuon()
 {
    for (int i = 0; i < sodausach; i++)
@@ -237,6 +242,7 @@ dausach *sach::timchuamuon()
          return cacdausach[i];
    return 0;
 }
+
 sach *sach::timsach(char *masach)
 {
    for (int i = 0; i < sosach; i++)
@@ -244,6 +250,7 @@ sach *sach::timsach(char *masach)
          return khosach[i];
    return 0;
 }
+
 dausach *sach::timdausach(char *masach, int id)
 {
    sach *sach1 = timsach(masach);
@@ -254,6 +261,7 @@ dausach *sach::timdausach(char *masach, int id)
          return sach1->cacdausach[i];
    return 0;
 }
+
 void sach::nhapsach()
 {
    char ma[80];
@@ -269,17 +277,20 @@ void sach::nhapsach()
    khosach[sosach++] = new sach(ma, ten, n);
    cout << "\nSach nay da duoc nhap vao !!!\n";
 }
+
 void sach::xoadl()
 {
    for (int i = 0; i < sosach; i++)
       delete khosach[i];
    sosach = 0;
 }
+
 void sach::inds()
 {
    for (int i = 0; i < sosach; i++)
       cout << "\nMa sach: " << khosach[i]->ma<<"\t\tTen sach: "<< khosach[i]->ten<<"\t\tSo dau sach: "<< khosach[i]->sodausach<<"\n";
 }
+
 void muon()
 {
    char mabd[80];
@@ -296,6 +307,7 @@ void muon()
    cin.getline(mas, sizeof(mas));
    bd->muon(mas);
 }
+
 void tra()
 {
    char mabd[80];
@@ -321,6 +333,7 @@ void tra()
    }
    bd->tra(ds);
 }
+
 void menu()
 {
    cout << "\n\n\n===== CHUONG TRINH QUAN LY THU VIEN =====\n\n";
@@ -332,8 +345,9 @@ void menu()
    cout << " 5. In danh sach ban doc\n";
    cout << " 6. In danh sach sach\n";
    cout << " 7. Thoat khoi chuong trinh !!!\n";
-   
+   cout << "Moi nhap: ";
 }
+
 int main()
 {
    TextColor(3);
