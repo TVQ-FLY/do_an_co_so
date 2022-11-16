@@ -1,5 +1,6 @@
 #include <iostream>
 #include <cstring>
+#include <fstream>
 #include <conio.h>
 #include <iomanip>
 #include <windows.h>
@@ -336,15 +337,25 @@ void tra()
 
 void menu()
 {
+   
    cout << "\n\n\n===== CHUONG TRINH QUAN LY THU VIEN =====\n\n";
+   Sleep(400);
    cout << "\n\n Nhap lua chon cua ban: \n";
+   Sleep(400);
    cout << " 1. Dang ki ban doc \n";
+   Sleep(400);
    cout << " 2. Nhap sach \n";
+   Sleep(400);
    cout << " 3. Muon sach \n";
+   Sleep(400);
    cout << " 4. Tra sach \n";
+   Sleep(400);
    cout << " 5. In danh sach ban doc\n";
+   Sleep(400);
    cout << " 6. In danh sach sach\n";
+   Sleep(400);
    cout << " 7. Thoat khoi chuong trinh !!!\n";
+   Sleep(400);
    cout << "Moi nhap: ";
 }
 
